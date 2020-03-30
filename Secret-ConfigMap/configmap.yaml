@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: db-configmap
+data:
+  db.mysql_home: "/usr/loca/mysql"
+  db.mysql_pwd: "topsecr123"
+  db.mysql_tcp_port: "3309"
+
+
