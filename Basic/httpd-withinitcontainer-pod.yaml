@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-pod
+  labels: 
+      app: httpd
+      tier: dev 
+spec:
+  initContainers:
+  - name: busybox-c
+    image: busybox
+    command: ["sleep"]
+    args: ["60"]
+  containers:
+  - name: httpd-c
+    image: httpd:2.4 
+    ports:
+    - containerPort: 80

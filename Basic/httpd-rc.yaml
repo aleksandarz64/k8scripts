@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: httpd-rc
+  labels: 
+    tier: dev 
+spec:
+    replicas: 2
+    selector: 
+       app: httpd-app 
+    template:
+     metadata:
+       name: httpd_pod 
+       labels:
+         app: httpd-app 
+     spec:
+       containers:
+        - name: httpd-c 
+          image: httpd:2.4
+          ports: 
+          - containerPort: 80
+          readinessProbe:
+            httpGet:
+             path: /
+             port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 60
+          livenessProbe: 
+            httpGet:
+             path: /
+             port: 80
+            initialDelaySeconds: 10
+            periodSeconds: 60
