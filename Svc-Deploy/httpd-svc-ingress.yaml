@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: httpd-svc-ingress 
+spec:
+  rules: 
+    - host: myexample.com.au
+      http:
+       paths: 
+        - path: /
+          backend:
+            serviceName: httpd-svc
+            servicePort: 80
+
