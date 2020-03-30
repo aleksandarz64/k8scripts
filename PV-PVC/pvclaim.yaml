@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pv0003claim
+spec:
+  selector:
+    matchLabels:
+      volume: pv0003
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  resources:
+      requests:
+        storage: 1Mi

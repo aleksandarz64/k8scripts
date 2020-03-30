@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-pod
+  labels: 
+      app: httpd
+spec:
+  containers:
+  - name: httpd-c
+    image: httpd:2.4 
+    ports:
+    - containerPort: 80
+    volumeMounts: 
+    - mountPath: /mnt
+      name: httpd-vol
+    
+  volumes:
+  - name: httpd-vol
+    persistentVolumeClaim:
+     claimName: pv0003claim

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: httpd-hostpath-pod
+  labels: 
+      app: httpd
+      tier: dev 
+spec:
+  containers:
+  - name: httpd-hostpath-c
+    image: httpd:2.4 
+    volumeMounts:
+    - mountPath: /hostmnt
+      name: hostpath-vol
+    ports:
+    - containerPort: 80
+  volumes:
+  - name: hostpath-vol
+    hostPath: 
+     path: /hostvol
