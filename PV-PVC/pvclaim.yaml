@@ -5,7 +5,8 @@ metadata:
 spec:
   selector:
     matchLabels:
-      volume: pv0003
+      # volume: pv0003
+      pv-type: nfs
   accessModes:
     - ReadWriteOnce
   volumeMode: Filesystem

@@ -2,6 +2,8 @@ apiVersion: v1
 kind: PersistentVolume
 metadata:
   name: pv0003
+  labels:
+    pv-type: nfs
 spec:
   capacity:
     storage: 5Mi
@@ -9,7 +11,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Recycle
-  storageClassName: slow
+  # storageClassName: slow
   mountOptions:
     - hard
     - nfsvers=4.1
